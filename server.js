@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.get('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   // const { username, password } = req.body;
 
   // Validate user credentials (replace with your logic)
