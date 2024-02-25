@@ -50,7 +50,7 @@ app.post('/login', async (req, res) => {
     sameSite: 'None', // Allow cross-site requests with same origin but different protocols
     maxAge: 3600000 // Set expiration time in milliseconds (1 hour)
   });
-  return res.status(401).json({ error: 'Invalid SSO Token' });
+  return res.status(200).json({ success: 'valid SSO Token' });
   // res.redirect('/protected');
 });
 
