@@ -23,7 +23,7 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'None', // Allow cross-domain access
-    domain: '.cors-dom.000webhostapp.com', // Set appropriate domain
+    domain: '.000webhostapp.com', // Set appropriate domain
     path: '/'         // Make cookie accessible across paths
   });
 
