@@ -1,9 +1,9 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const app = express();
-// const secretKey = 'your_strong_secret_key'; // Replace with a secure key
+const secretKey = 'your_strong_secret_key'; // Replace with a secure key
 
 app.use(cookieParser());
 app.get('/', async (req, res) => {
@@ -23,7 +23,7 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'Lax', // Mitigate CSRF risks
-    domain: '.cors-dom.000webhostapp.com', // Set appropriate domain if needed
+    domain: '.testing-node-ny3s.onrender.com .cors-dom.000webhostapp.com', // Set appropriate domain if needed
     path: '/'         // Make cookie accessible across paths
   });
 
