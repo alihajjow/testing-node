@@ -19,7 +19,7 @@ const users = {
 app.get('/', async (req, res) => {
   const authCookie = req.cookies['ssoToken'];
   if (!authCookie) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorizjed' });
   }
 
   try {
