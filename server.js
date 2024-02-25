@@ -22,8 +22,8 @@ app.get('/login', async (req, res) => {
   res.cookie('auth_token', token, {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
-    sameSite: 'Lax', // Mitigate CSRF risks
-    domain: 'cors-dom.000webhostapp.com', // Set appropriate domain if needed
+    sameSite: 'None', // Mitigate CSRF risks
+    domain: '.cors-dom.000webhostapp.com', // Set appropriate domain if needed
     path: '/'         // Make cookie accessible across paths
   });
 
