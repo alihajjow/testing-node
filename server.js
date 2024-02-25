@@ -49,8 +49,8 @@ app.post('/login', async (req, res) => {
     secure: true,    // Only transmit over HTTPS
     path: '/'         // Make cookie accessible across paths
   });
-
-  res.redirect('/protected');
+  return res.status(401).json({ error: 'Invalid SSO Token' });
+  // res.redirect('/protected');
 });
 
 const verifySSOCookie = (req, res, next) => {
