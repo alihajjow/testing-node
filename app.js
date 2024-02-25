@@ -21,7 +21,7 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'Lax', // Mitigate CSRF risks
-    domain: '.https://testing-node-production.up.railway.app/ .cors-dom.000webhostapp.com/', // Set appropriate domain if needed
+    domain: '.testing-node-production.up.railway.app .cors-dom.000webhostapp.com', // Set appropriate domain if needed
     path: '/'         // Make cookie accessible across paths
   });
 
