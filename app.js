@@ -21,7 +21,7 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'Lax', // Mitigate CSRF risks
-    domain: '.localhost .127.0.0.1', // Set appropriate domain if needed
+    domain: '.localhost .cors-dom.000webhostapp.com/', // Set appropriate domain if needed
     path: '/'         // Make cookie accessible across paths
   });
 
