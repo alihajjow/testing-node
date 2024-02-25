@@ -7,7 +7,8 @@ const secretKey = 'your_strong_secret_key'; // Replace with a secure key
 
 app.use(cookieParser());
 app.get('/', async (req, res) => {
-  res.json({ message: ' successful' });
+  const cook = req.cookies['auth_token']
+  res.json({ message: cook });
 })
 app.get('/login', async (req, res) => {
   // const { username, password } = req.body;
@@ -23,11 +24,10 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'None', // Allow cross-domain access
-    domain: '.000webhostapp.com', // Set appropriate domain
     path: '/'         // Make cookie accessible across paths
   });
 
-  res.json({ message: 'Login successful' });
+  res.redirect('/?success=true');
 });
 
 app.listen(3000, () => console.log('SSO server listening on port 3000'));
