@@ -23,7 +23,7 @@ app.get('/login', async (req, res) => {
     httpOnly: true,  // Protect against client-side JavaScript access
     secure: true,    // Only transmit over HTTPS
     sameSite: 'Lax', // Mitigate CSRF risks
-    domain: 'testing-node-ny3s.onrender.com cors-dom.000webhostapp.com', // Set appropriate domain if needed
+    domain: 'cors-dom.000webhostapp.com', // Set appropriate domain if needed
     path: '/'         // Make cookie accessible across paths
   });
 
