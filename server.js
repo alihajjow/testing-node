@@ -57,7 +57,7 @@ const verifySSOCookie = (req, res, next) => {
   const ssoCookie = req.cookies.ssoToken;
 
   if (!ssoCookie) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorizeddd' });
   }
 
   try {
