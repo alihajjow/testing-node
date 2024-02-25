@@ -45,9 +45,10 @@ app.post('/login', async (req, res) => {
   const token = jwt.sign(user, secretKey, { expiresIn: '1h' });
 
   res.cookie('ssoToken', token, {
-    httpOnly: true,  // Protect against client-side JavaScript access
-    secure: true,    // Only transmit over HTTPS
-    path: '/'         // Make cookie accessible across paths
+    httpOnly: true,
+    secure: true, // Only send over HTTPS (recommended)
+    sameSite: 'None', // Allow cross-site requests with same origin but different protocols
+    maxAge: 3600000 // Set expiration time in milliseconds (1 hour)
   });
   return res.status(401).json({ error: 'Invalid SSO Token' });
   // res.redirect('/protected');
