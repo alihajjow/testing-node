@@ -1,11 +1,13 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 const app = express();
 const secretKey = 'your_strong_secret_key'; // Replace with a secure key
 
 app.use(cookieParser());
+app.use(cors({ origin: 'https://cors-dom.000webhostapp.com', credentials: true }));
 
 // Dummy user database
 const users = {
@@ -16,31 +18,9 @@ const users = {
   }
 };
 
-app.get('/', async (req, res) => {
-  const authCookie = req.cookies['ssoToken'];
-  if (!authCookie) {
-    return res.status(401).json({ error: 'Unauthorizjed' });
-  }
-
-  try {
-    const decoded = jwt.verify(authCookie, secretKey);
-    const user = users[decoded.id];
-    if (!user) {
-      throw new Error('User not found');
-    }
-    res.json({ message: `Welcome ${user.name}!` });
-  } catch (err) {
-    return res.status(401).json({ error: 'Invalid SSO Token' });
-  }
-});
-
 app.post('/login', async (req, res) => {
-  // const { username, password } = req.body;
 
-  // Validate user credentials (replace with your logic)
-  // ...
-
-  const user = { id: 'user1', username: 'user1' }; // Replace with actual user data
+  const user = { id: 'user1', name: 'John Doe' }; // Replace with actual user data
 
   const token = jwt.sign(user, secretKey, { expiresIn: '1h' });
 
@@ -58,7 +38,7 @@ const verifySSOCookie = (req, res, next) => {
   const ssoCookie = req.cookies.ssoToken;
 
   if (!ssoCookie) {
-    return res.status(401).json({ error: 'Unauthorizeddd' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   try {
