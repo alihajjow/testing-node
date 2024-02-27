@@ -54,7 +54,7 @@ const verifySSOCookie = (req, res, next) => {
   }
 };
 
-app.post('/protected', verifySSOCookie, (req, res) => {
+app.get('/protected', verifySSOCookie, (req, res) => {
   res.json({ message: `Welcome ${req.user.name} to the protected route!` });
 });
 
