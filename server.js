@@ -152,6 +152,6 @@ app.get('/api/ssoLogin',(req, res) => {
 });
 
 app.get('/api/getCookies',(req, res) => {
-  return res.status(200).json({ success: req.cookies['ssoToken'] });
+  return res.status(200).json({ success: req.cookies });
 });
 app.listen(3000, () => console.log('SSO server listening on port 3000'));
