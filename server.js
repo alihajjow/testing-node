@@ -133,7 +133,7 @@ app.use(cors({
 // });
 
 
-app.post('/api/ssoLogin',(req, res) => {
+app.get('/api/ssoLogin',(req, res) => {
   const user = {
     id: 'user1',
     name: 'John Doe',
