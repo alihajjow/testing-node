@@ -144,7 +144,7 @@ app.get('/api/ssoLogin',(req, res) => {
   res.cookie('ssoToken', token, {
     httpOnly: true,
     secure: true, // Only send over HTTPS (recommended)
-    sameSite: 'None', // Allow cross-site requests with same origin but different protocols
+    sameSite: 'Strict', // Allow cross-site requests with same origin but different protocols
     maxAge: 36000000, // Set expiration time in milliseconds (1 hour)
   });
 
