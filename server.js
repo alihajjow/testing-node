@@ -19,13 +19,13 @@ app.get('/api/ssoLogin', (req, res) => {
     name: 'John Doe',
   }; // Change this to match your actual user data retrieval
 
-  const token = jwt.sign(user, secretKey, {expiresIn: '1h'});
+  const token = jwt.sign(user, secretKey, {expiresIn: '365d'});
 
   res.cookie('ssoToken', token, {
     httpOnly: true,
     secure: true, // Only send over HTTPS (recommended)
     sameSite: 'None', // Allow cross-site requests with same origin but different protocols
-    maxAge: 36000000, // Set expiration time in milliseconds (1 hour)
+    maxAge: 1000 * 60 * 60 * 24 * 30, // Set expiration time in milliseconds (30 days)
   });
 
   return res.status(200).json({success: token});
