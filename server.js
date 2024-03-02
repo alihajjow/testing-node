@@ -21,7 +21,7 @@ app.get('/api/ssoLogin', (req, res) => {
 
   const token = jwt.sign(user, secretKey, {expiresIn: '365d'});
 
-  res.cookie('ssoToken', token, {
+  res.cookie('__Host-testing-node-ny3s.onrender.com', token, {
     httpOnly: true,
     secure: true, // Only send over HTTPS (recommended)
     sameSite: 'None', // Allow cross-site requests with same origin but different protocols
@@ -33,7 +33,7 @@ app.get('/api/ssoLogin', (req, res) => {
 
 const verifySSOCookie = (req, res, next) => {
   console.log('cookies', req.cookies)
-  const ssoCookie = req.cookies.ssoToken;
+  const ssoCookie = req.cookies['__Host-testing-node-ny3s.onrender.com'];
 
   if (!ssoCookie) {
     return res.status(401).json({ error: 'Unauthorized' });
